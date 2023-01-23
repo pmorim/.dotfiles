@@ -4,38 +4,34 @@
 <img src="https://img.shields.io/github/license/pmorim/.dotfiles?style=for-the-badge&logo=powerpages&color=cba6f7&logoColor=D9E0EE&labelColor=302D41"/>
 </div>
 
-# .dotfiles
+# 📁 .dotfiles
 
-> My personal dotfiles
+My personal dotfiles.
 
 ## 📦 Setup
 
-#### Files are structured to create symlinks using [stow](https://www.gnu.org/software/stow/)
+Files are structured to create symlinks using [stow](https://www.gnu.org/software/stow/).
 
-#### Clone the repo
+1. Clone the repo
 
 ```sh
-git clone https://github.com/pmorim/.dotfiles && cd .dotfiles
+git clone https://github.com/pmorim/.dotfiles
+cd .dotfiles
 ```
 
-#### Create the symlinks
-
-Use all of the dotfiles:
+2. Create the symlinks
 
 ```sh
+# Use all of the dotfiles...
 stow */
-```
 
-Or use just a module:
-
-```sh
-# stow <module>
-stow zsh
+# ...or just one module
+stow <module>
 ```
 
 ## ⭐ Credits
 
 Inspired by:
 
-- [kabinspace](https://github.com/kabinspace/dotfiles)
-- [chris@machine](https://github.com/ChristianChiarulli/Machfiles)
+- [chris@machine](https://github.com/ChristianChiarulli/Machfiles) - creator of [LunarVim](https://www.lunarvim.org/) and [Zap](https://www.zapzsh.org/).
+- [kabinspace](https://github.com/kabinspace/dotfiles) - creator of [AstroNvim](https://astronvim.github.io/).
