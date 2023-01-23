@@ -20,5 +20,5 @@ export MANWIDTH=999
 # Zoxide: a better `cd`
 eval "$(zoxide init zsh)"
 
-# Starship prompt
+# Starship
 eval "$(starship init zsh)"
