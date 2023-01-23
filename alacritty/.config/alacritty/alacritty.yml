@@ -1,4 +1,4 @@
-# One Darker Theme
+# Theme: One Darker
 colors:
   primary:
     background: "#232731"
@@ -14,7 +14,6 @@ colors:
     cyan: "#56B6C2"
     white: "#abb2bf"
 
-  # Bright colors
   bright:
     black: "#4b5263"
     red: "#e06c75"
@@ -27,7 +26,6 @@ colors:
 
   background_opacity: 1.0
 
-  # Change cursor colors
   cursor:
     text: "#3B4252"
     cursor: "#ECEFF4"
@@ -82,3 +80,4 @@ key_bindings:
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
+
