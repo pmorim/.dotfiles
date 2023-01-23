@@ -1,0 +1,84 @@
+# One Darker Theme
+colors:
+  primary:
+    background: "#232731"
+    foreground: "#abb2bf"
+
+  normal:
+    black: "#4b5263"
+    red: "#e06c75"
+    green: "#98C379"
+    yellow: "#E5C07B"
+    blue: "#61AFEF"
+    magenta: "#C678DD"
+    cyan: "#56B6C2"
+    white: "#abb2bf"
+
+  # Bright colors
+  bright:
+    black: "#4b5263"
+    red: "#e06c75"
+    green: "#98C379"
+    yellow: "#E5C07B"
+    blue: "#61AFEF"
+    magenta: "#C678DD"
+    cyan: "#56B6C2"
+    white: "#abb2bf"
+
+  background_opacity: 1.0
+
+  # Change cursor colors
+  cursor:
+    text: "#3B4252"
+    cursor: "#ECEFF4"
+
+cursor:
+  style:
+    blinking: Never
+
+font:
+  normal:
+    family: Hack Nerd Font
+    style: Regular
+
+  bold:
+    family: Hack Nerd Font
+    style: Bold
+
+  italic:
+    family: Hack Nerd Font
+    style: Italic
+
+  bolditalic:
+    family: Hack Nerd Font
+    style: BoldItalic
+
+  size: 12.0
+
+  ligatures: true
+
+  offset:
+    x: 0
+    y: 0
+
+  glyph_offset:
+    x: 0
+    y: 0
+
+window:
+  padding:
+    x: 8
+    y: 8
+
+  history: 10000
+  dynamic_title: true
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+  save_to_clipboard: true
+  live_config_reload: true
+
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
