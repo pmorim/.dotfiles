@@ -6,6 +6,7 @@
 # Source
 plug "$HOME/.config/zsh/aliases.zsh"
 plug "$HOME/.config/zsh/exports.zsh"
+plug "$HOME/.zshrc.local"
 
 # Plugins
 plug "zsh-users/zsh-autosuggestions"
