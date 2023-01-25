@@ -22,8 +22,11 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5' # CPU
 alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
-# Other
-alias g='lazygit'
-alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
+# Neovim
 alias nvimrc='nvim ~/.config/nvim/'
+
+# Git
+alias g='lazygit'
+
+# Arch packages
 alias yay="paru"

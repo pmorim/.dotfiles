@@ -1,2 +1,1 @@
-# 24h in seconds
-command_timeout = 86400
+command_timeout = 86400 # 24h
