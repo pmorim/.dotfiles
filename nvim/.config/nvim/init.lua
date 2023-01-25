@@ -22,10 +22,8 @@ require('packer').startup(function(use)
       'j-hui/fidget.nvim',
 
       -- Additional lua configuration, makes nvim stuff amazing
-
       'folke/neodev.nvim',
     },
-
   }
 
   use { -- Autocompletion
@@ -61,7 +59,6 @@ require('packer').startup(function(use)
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
 
-
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
@@ -92,12 +89,10 @@ end)
 -- You'll need to restart nvim, and then it will work.
 
 if is_bootstrap then
-
   print '=================================='
   print '    Plugins are being installed'
   print '    Wait until Packer completes,'
   print '       then restart nvim'
-
   print '=================================='
   return
 end
@@ -168,6 +163,14 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Half-screen navigation
+vim.keymap.set('n', '<C-d>', '<C-d>zz') -- Move half of a screen [D]own
+vim.keymap.set('n', '<C-u>', '<C-u>zz') -- Move half of a screen [U]p
+
+-- Better text find
+vim.keymap.set('n', 'n', 'nzz') -- Find the [n]ext instance
+vim.keymap.set('n', 'N', 'Nzz') -- Find the previous instance
+
 -- [[ Highlight on yank ]]
 
 -- See `:help vim.highlight.on_yank()`
@@ -188,11 +191,8 @@ require('lualine').setup {
     icons_enabled = false,
     theme = 'onedark',
     component_separators = '|',
-
     section_separators = '',
-
   },
-
 }
 
 
@@ -215,9 +215,7 @@ require('gitsigns').setup {
     delete = { text = '_' },
     topdelete = { text = '‾' },
     changedelete = { text = '~' },
-
   },
-
 }
 
 
@@ -231,9 +229,7 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
-
   },
-
 }
 
 
