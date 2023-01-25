@@ -109,6 +109,9 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+-- Scroll padding
+vim.opt.scrolloff = 8
+
 -- Show relative line numbers
 vim.opt.relativenumber = true
 
