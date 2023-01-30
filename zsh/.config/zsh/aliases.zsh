@@ -24,9 +24,3 @@ alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
 # Neovim
 alias nvimrc='nvim ~/.config/nvim/'
-
-# Git
-alias g='lazygit'
-
-# Arch packages
-alias yay="paru"
