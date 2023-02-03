@@ -13,7 +13,6 @@ plug "zsh-users/zsh-autosuggestions"
 plug "hlissner/zsh-autopair"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/exa"
-plug "zap-zsh/vim"
 plug "zsh-users/zsh-syntax-highlighting"
 
 # Keybinds
