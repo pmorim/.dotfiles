@@ -129,11 +129,8 @@ assign [class="Popcorn-Time"] $ws9
 assign [class="1Password"] $ws10
 
 # Startup apps
-exec 1password
-exec alacritty
 exec brave
 exec discord
-exec spotify
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
