@@ -1,34 +1,31 @@
-# Theme: One Darker
+# Theme: Atom  One Dark
 colors:
   primary:
-    background: "#232731"
-    foreground: "#abb2bf"
-
+    background: "#1E2127"
+    foreground: "#ABB2BF"
   normal:
-    black: "#4b5263"
-    red: "#e06c75"
+    black: "#1E2127"
+    red: "#E06C75"
     green: "#98C379"
-    yellow: "#E5C07B"
+    yellow: "#D19A66"
     blue: "#61AFEF"
     magenta: "#C678DD"
     cyan: "#56B6C2"
-    white: "#abb2bf"
-
+    white: "#ABB2BF"
   bright:
-    black: "#4b5263"
-    red: "#e06c75"
+    black: "#5C6370"
+    red: "#E06C75"
     green: "#98C379"
-    yellow: "#E5C07B"
+    yellow: "#D19A66"
     blue: "#61AFEF"
     magenta: "#C678DD"
     cyan: "#56B6C2"
-    white: "#abb2bf"
-
-  background_opacity: 1.0
-
+    white: "#ABB2BF"
   cursor:
-    text: "#3B4252"
-    cursor: "#ECEFF4"
+    text: "#ABB2BF"
+    cursor: "#5C6370"
+
+  background_opacity: 0.8
 
 cursor:
   style:
@@ -38,27 +35,22 @@ font:
   normal:
     family: Hack Nerd Font
     style: Regular
-
   bold:
     family: Hack Nerd Font
     style: Bold
-
   italic:
     family: Hack Nerd Font
     style: Italic
-
   bolditalic:
     family: Hack Nerd Font
     style: BoldItalic
 
   size: 12.0
-
   ligatures: true
 
   offset:
     x: 0
     y: 0
-
   glyph_offset:
     x: 0
     y: 0
@@ -80,4 +72,3 @@ key_bindings:
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
-
