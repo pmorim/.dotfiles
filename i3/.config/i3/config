@@ -16,7 +16,6 @@ set $black #1E2127
 set $blue #61AFEF
 set $cyan #56B6C2
 set $green #98C379
-set $grey #5C6370
 set $magenta #C678DD
 set $red #E06C75
 set $white #ABB2BF
@@ -24,10 +23,10 @@ set $yellow #D19A66
 
 # Window Colors
 # Type                  Border      Background  Text        Indicator
-client.focused          $white      $white      $black      $grey
-client.unfocused        $black      $black      $white      $grey
-client.focused_inactive $black      $black      $white      $grey
-client.urgent           $yellow     $yellow     $black      $grey
+client.focused          $white      $white      $black      $white
+client.unfocused        $black      $black      $white      $black
+client.focused_inactive $black      $black      $white      $black
+client.urgent           $yellow     $yellow     $black      $yellow
 
 # Hide edges
 hide_edge_borders both
@@ -38,12 +37,12 @@ bar {
   font pango:Hack Nerd Font 12
   colors {
 		background $black
-	  separator $grey
+	  separator $white
 
 		# Type              Border      Background  Text
 		focused_workspace   $white      $white      $black
 		inactive_workspace  $black      $black      $white
-		urgent_workspace    $red        $red        $black
+		urgent_workspace    $yellow     $yellow     $black
 	}
 }
 
