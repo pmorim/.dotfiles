@@ -99,7 +99,7 @@ exec --no-startup-id discord
 exec_always --no-startup-id alternating_layouts.py
 
 # Compton for window opacity
-exec_always compton
+exec_always compton -f
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
