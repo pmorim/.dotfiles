@@ -18,14 +18,14 @@ title_align center
 exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
 
 # Global theme colors (Atom One Dark)
-set $black #1E2127
-set $blue #61AFEF
-set $cyan #56B6C2
-set $green #98C379
-set $magenta #C678DD
-set $red #E06C75
-set $white #ABB2BF
-set $yellow #D19A66
+set $black #282c34
+set $blue #61afef
+set $cyan #56b6c2
+set $green #98c379
+set $magenta #c678dd
+set $red #e06c75
+set $white #abb2bf
+set $yellow #e5c07b
 
 # Window Colors
 # Type                  Border      Background  Text        Indicator

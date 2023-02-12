@@ -1,32 +1,22 @@
 # Atom One Dark
 colors:
   primary:
-    background: "#1E2127"
-    foreground: "#ABB2BF"
+    background: "#282c34"
+    foreground: "#abb2bf"
 
   normal:
-    black: "#1E2127"
-    blue: "#61AFEF"
-    cyan: "#56B6C2"
-    green: "#98C379"
-    magenta: "#C678DD"
-    red: "#E06C75"
-    white: "#ABB2BF"
-    yellow: "#D19A66"
-
-  bright:
-    black: "#5C6370"
-    blue: "#61AFEF"
-    cyan: "#56B6C2"
-    green: "#98C379"
-    magenta: "#C678DD"
-    red: "#E06C75"
-    white: "#ABB2BF"
-    yellow: "#D19A66"
+    black: "#282c34"
+    blue: "#61afef"
+    cyan: "#56b6c2"
+    green: "#98c379"
+    magenta: "#c678dd"
+    red: "#e06c75"
+    white: "#abb2bf"
+    yellow: "#e5c07b"
 
   cursor:
-    cursor: "#5C6370"
-    text: "#ABB2BF"
+    cursor: "#5c6370"
+    text: "#abb2bf"
 
 font:
   normal:
