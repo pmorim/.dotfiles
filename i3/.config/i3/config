@@ -8,6 +8,12 @@ font pango:SF Pro 12
 gaps inner 8px
 gaps outer 16px
 
+# Hide edges
+hide_edge_borders both
+
+# Window titles
+title_align center
+
 # Set desktop wallpaper
 exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
 
@@ -27,12 +33,6 @@ client.focused          $white      $white      $black      $white
 client.unfocused        $black      $black      $white      $black
 client.focused_inactive $black      $black      $white      $black
 client.urgent           $yellow     $yellow     $black      $yellow
-
-# Hide edges
-hide_edge_borders both
-
-# Window titles
-title_align center
 
 # Status bar
 bar {
