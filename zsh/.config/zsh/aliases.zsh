@@ -22,5 +22,6 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5' # CPU
 alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
-# Neovim
-alias nvimrc='nvim ~/.config/nvim/'
+# Code editors
+alias nvimrc="nvim ~/.config/nvim/"
+alias code="vscodium"
