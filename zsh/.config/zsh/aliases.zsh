@@ -14,7 +14,7 @@ alias rm="rm -i"
 alias df="df -h"      # Human-readable sizes
 alias free="free -m"  # Show sizes in MB
 
-# Get top process eating:
+# Get top process eating
 alias psmem="ps auxf | sort -nr -k 4 | head -5" # Memory
 alias pscpu="ps auxf | sort -nr -k 3 | head -5" # CPU
 
