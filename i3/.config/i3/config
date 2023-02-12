@@ -98,6 +98,9 @@ exec --no-startup-id discord
 # Alternating layout
 exec_always --no-startup-id alternating_layouts.py
 
+# Compton for window opacity
+exec_always compton
+
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -118,7 +121,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # App launcher
-bindsym $mod+d exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$black" -bg "$black" -fg "$white" -hlbg "$black" -hlfg "$blue" -font "SF Pro 18"
 
 # Lock screen
 bindsym $mod+shift+x exec i3lock
