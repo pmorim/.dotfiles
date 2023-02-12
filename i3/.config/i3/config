@@ -124,7 +124,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$black" -bg "$black" -fg "$white" -hlbg "$black" -hlfg "$blue" -font "SF Pro 18"
 
 # Lock screen
-bindsym $mod+shift+x exec i3lock --color "$black"
+bindsym $mod+shift+x exec i3lock-fancy
 
 # Change focus
 bindsym $mod+h focus left
