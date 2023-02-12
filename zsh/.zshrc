@@ -16,4 +16,4 @@ plug "zap-zsh/exa"
 plug "zsh-users/zsh-syntax-highlighting"
 
 # Keybinds
-bindkey '^ ' autosuggest-accept
+bindkey "^ " autosuggest-accept
