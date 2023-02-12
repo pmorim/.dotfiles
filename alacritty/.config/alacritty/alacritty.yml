@@ -1,29 +1,29 @@
-# Theme: Atom  One Dark
+# Global theme colors (Atom One Dark)
 colors:
   primary:
     background: "#1E2127"
     foreground: "#ABB2BF"
   normal:
     black: "#1E2127"
-    red: "#E06C75"
-    green: "#98C379"
-    yellow: "#D19A66"
     blue: "#61AFEF"
-    magenta: "#C678DD"
     cyan: "#56B6C2"
+    green: "#98C379"
+    magenta: "#C678DD"
+    red: "#E06C75"
     white: "#ABB2BF"
+    yellow: "#D19A66"
   bright:
     black: "#5C6370"
-    red: "#E06C75"
-    green: "#98C379"
-    yellow: "#D19A66"
     blue: "#61AFEF"
-    magenta: "#C678DD"
     cyan: "#56B6C2"
+    green: "#98C379"
+    magenta: "#C678DD"
+    red: "#E06C75"
     white: "#ABB2BF"
+    yellow: "#D19A66"
   cursor:
-    text: "#ABB2BF"
     cursor: "#5C6370"
+    text: "#ABB2BF"
 
   background_opacity: 0.8
 

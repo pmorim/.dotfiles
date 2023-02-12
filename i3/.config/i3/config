@@ -13,6 +13,41 @@ gaps outer 16px
 # Set desktop wallpaper
 exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
 
+# Global theme colors (Atom One Dark)
+set $black #1E2127
+set $blue #61AFEF
+set $cyan #56B6C2
+set $green #98C379
+set $grey #5C6370
+set $magenta #C678DD
+set $red #E06C75
+set $white #ABB2BF
+set $yellow #D19A66
+
+# Window Colors
+# Type                  Border      Background  Text        Indicator
+client.focused          $white      $white      $black      $grey
+client.unfocused        $black      $black      $white      $grey
+client.focused_inactive $black      $black      $white      $grey
+client.urgent           $yellow     $yellow     $black      $grey
+
+# Hide edges
+hide_edge_borders both
+
+# Status bar
+bar {
+  i3bar_command i3bar
+  colors {
+		background $black
+	  separator $grey
+
+		# Type              Border      Background  Text
+		focused_workspace   $white      $white      $black
+		inactive_workspace  $black      $black      $white
+		urgent_workspace    $red        $red        $black
+	}
+}
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
