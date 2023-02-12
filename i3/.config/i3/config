@@ -133,7 +133,7 @@ exec brave
 exec discord
 
 # Alternating layout
-exec --no-startup-id ./alternating_layouts.py
+exec_always --no-startup-id alternating_layouts.py
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
