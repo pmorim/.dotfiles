@@ -1,8 +1,9 @@
-# Global theme colors (Atom One Dark)
+# Atom One Dark
 colors:
   primary:
     background: "#1E2127"
     foreground: "#ABB2BF"
+
   normal:
     black: "#1E2127"
     blue: "#61AFEF"
@@ -12,6 +13,7 @@ colors:
     red: "#E06C75"
     white: "#ABB2BF"
     yellow: "#D19A66"
+
   bright:
     black: "#5C6370"
     blue: "#61AFEF"
@@ -21,13 +23,10 @@ colors:
     red: "#E06C75"
     white: "#ABB2BF"
     yellow: "#D19A66"
+
   cursor:
     cursor: "#5C6370"
     text: "#ABB2BF"
-
-cursor:
-  style:
-    blinking: Never
 
 font:
   normal:
@@ -42,19 +41,11 @@ font:
 
   size: 12.0
 
-  offset:
-    x: 0
-    y: 0
-  glyph_offset:
-    x: 0
-    y: 0
-
 window:
   opacity: 0.95
   padding:
     x: 8
     y: 8
-  dynamic_title: true
 
 key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
