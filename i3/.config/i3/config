@@ -1,7 +1,7 @@
 # Modifier keys
 set $mod Mod4
 
-# Font for window titles
+# Global font
 font pango:SF Pro 12
 
 # Gaps
@@ -30,6 +30,9 @@ client.urgent           $yellow     $yellow     $black      $yellow
 
 # Hide edges
 hide_edge_borders both
+
+# Window titles
+title_align center
 
 # Status bar
 bar {
