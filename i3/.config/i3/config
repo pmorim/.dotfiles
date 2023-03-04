@@ -223,8 +223,8 @@ set $ws5 "5  "
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9 󰐢 "
-set $ws10 "10  "
+set $ws9 "9"
+set $ws10 "10 󰐢 "
 
 # Workspaces on different displays
 # Use `xrandr` to get the names of the displays
@@ -232,13 +232,13 @@ set $ws10 "10  "
 
 # Bind program to workspace and focus to them on startup:
 assign [class="Brave"] $ws1
-assign [class="vscodium"] $ws2
+assign [class="VSCodium"] $ws2
+assign [class="Alacritty"] $ws2
 assign [class="discord"] $ws3
-assign [class="Spotify"] $ws4
+for_window [class="Spotify"] move to workspace $ws4
 assign [class="Thunar"] $ws5
-assign [class="Popcorn-Time"] $ws9
-assign [class="Stremio"] $ws9
-assign [class="btm"] $ws10
+assign [class="Popcorn-Time"] $ws10
+assign [class="Stremio"] $ws10
 
 # Automatic set focus new window if it opens on another workspace than the current:
 #for_window [class=alacritty] focus
@@ -260,9 +260,19 @@ bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png \
 # Picom
 exec_always --no-startup-id picom --config  ~/.config/picom.conf
 
-############################################
-# Autostart applications/services on login #
-############################################
+##########################
+# Autostart applications #
+##########################
+
+exec --no-startup-id brave
+exec --no-startup-id alacritty
+exec --no-startup-id discord
+exec --no-startup-id spotify
+exec --no-startup-id thunar
+
+######################
+# Autostart services #
+######################
 
 # Get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -281,14 +291,6 @@ exec_always --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 # https://github.com/nwg-piotr/autotiling
 exec_always --no-startup-id autotiling
 
-# Autostart apps as you like
-exec --no-startup-id brave
-exec --no-startup-id alacritty
-exec --no-startup-id thunar
-exec --no-startup-id btm
-exec --no-startup-id spotify
-exec --no-startup-id discord
-
 ###############
 # System tray #
 ###############
@@ -298,9 +300,6 @@ exec --no-startup-id blueberry-tray
 
 # Network
 exec --no-startup-id nm-applet
-
-# Screenshots
-exec --no-startup-id flameshot
 
 #########
 # Theme #
