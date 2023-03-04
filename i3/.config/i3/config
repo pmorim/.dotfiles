@@ -186,6 +186,9 @@ bindsym $mod+space focus mode_toggle
 # Open closest empty workspace
 bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 
+# Screenshot
+bindsym $mod+Shift+s exec maim -s | xclip -selection clipboard -t image/png
+
 ###################
 # Multimedia keys #
 ###################
