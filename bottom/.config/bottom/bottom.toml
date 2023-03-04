@@ -1,0 +1,44 @@
+[flags]
+battery = true
+tree = true
+show_table_scroll_position = true
+enable_gpu_memory = true
+
+
+# Theme: Atom One Dark
+[colors]
+graph_color="#abb2bf"
+
+# Titles
+table_header_color="#61afef"
+widget_title_color="#abb2bf"
+
+# Borders
+border_color="#abb2bf"
+highlighted_border_color="#61afef"
+
+# CPU
+avg_cpu_color="#abb2bf"
+cpu_core_colors=["#c678dd", "#e5c07b", "#56b6c2", "#98c379", "#61afef", "#e06c75"]
+
+# Memory
+ram_color="#61afef"
+swap_color="#e5c07b"
+
+# GPU
+gpu_core_colors=["#98c379", "#61afef", "#e06c75"]
+arc_color="#56b6c2"
+
+# Network
+rx_color="#56b6c2"
+tx_color="#98c379"
+
+# Text
+text_color="#abb2bf"
+selected_text_color="#282c34"
+selected_bg_color="#abb2bf"
+
+# Battery
+high_battery_color="#98c379"
+medium_battery_color="#e5c07b"
+low_battery_color="#e06c75"
