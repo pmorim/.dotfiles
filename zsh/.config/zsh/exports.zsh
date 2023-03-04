@@ -23,3 +23,6 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 # Starship prompt
 eval "$(starship init zsh)"
+
+# Broot file explorer
+source /home/pmorim/.config/broot/launcher/bash/br
