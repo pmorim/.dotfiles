@@ -1,77 +1,68 @@
-# Modifier keys
+# Modifier key
 set $mod Mod4
 
-# Global font
-font pango:SF Pro 12
+# Font (window titles)
+font pango:Noto Sans Regular 12
 
-# Gaps
-gaps inner 8px
-gaps outer 16px
+# Default i3 tiling mode:
+workspace_layout default
 
-# Hide edges
+#############################
+# Extra options for windows #
+#############################
+
+# Border indicator on windows
+new_window pixel 1
+
+# Thin borders
 hide_edge_borders both
 
-# Window titles
-title_align center
+# Set inner/outer gaps
+gaps inner 8
+gaps outer 4
 
-# Set desktop wallpaper
-exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
 
-# Global theme colors (Atom One Dark)
-set $black #282c34
-set $blue #61afef
-set $cyan #56b6c2
-set $green #98c379
-set $magenta #c678dd
-set $red #e06c75
-set $white #abb2bf
-set $yellow #e5c07b
-
-# Window Colors
-# Type                  Border      Background  Text        Indicator
-client.focused          $white      $white      $black      $white
-client.unfocused        $black      $black      $white      $black
-client.focused_inactive $black      $black      $white      $black
-client.urgent           $yellow     $yellow     $black      $yellow
-
-# Status bar
-bar {
-  i3bar_command i3bar
-  font pango:Hack Nerd Font 12
-  colors {
-		background $black
-	  separator $white
-
-		# Type              Border      Background  Text
-		focused_workspace   $white      $white      $black
-		inactive_workspace  $black      $black      $white
-		urgent_workspace    $yellow     $yellow     $black
-	}
-}
-
-# Define names for the workspaces
-set $ws1 "1 󰖟 "
-set $ws2 "2  "
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8 󰐢 "
-set $ws9 "9 󰓇 "
-set $ws10 "10 󰙯 "
+# Switch/iterate between workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 # Switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1    workspace  $ws1
+bindsym $mod+2    workspace  $ws2
+bindsym $mod+3    workspace  $ws3
+bindsym $mod+4    workspace  $ws4
+bindsym $mod+5    workspace  $ws5
+bindsym $mod+6    workspace  $ws6
+bindsym $mod+7    workspace  $ws7
+bindsym $mod+8    workspace  $ws8
+bindsym $mod+9    workspace  $ws9
+bindsym $mod+0    workspace  $ws10
+
+# Switch to workspace with numpad keys
+bindcode $mod+87 workspace 1
+bindcode $mod+88 workspace 2
+bindcode $mod+89 workspace 3
+bindcode $mod+83 workspace 4
+bindcode $mod+84 workspace 5
+bindcode $mod+85 workspace 6
+bindcode $mod+79 workspace 7
+bindcode $mod+80 workspace 8
+bindcode $mod+81 workspace 9
+bindcode $mod+90 workspace 10
+
+# Switch to workspace with numlock numpad keys
+bindcode $mod+Mod2+87 workspace $ws1
+bindcode $mod+Mod2+88 workspace $ws2
+bindcode $mod+Mod2+89 workspace $ws3
+bindcode $mod+Mod2+83 workspace $ws4
+bindcode $mod+Mod2+84 workspace $ws5
+bindcode $mod+Mod2+85 workspace $ws6
+bindcode $mod+Mod2+79 workspace $ws7
+bindcode $mod+Mod2+80 workspace $ws8
+bindcode $mod+Mod2+81 workspace $ws9
+bindcode $mod+Mod2+90 workspace $ws10
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -85,64 +76,99 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# Bind apps to workspaces
-assign [class="Brave"] $ws1
-assign [class="Popcorn-Time"] $ws8
-assign [class="Spotify"] $ws9
-assign [class="discord"] $ws0
+# Move focused container to workspace with numpad keys
+bindcode $mod+Shift+Mod2+87 move container to workspace $ws1
+bindcode $mod+Shift+Mod2+88 move container to workspace $ws2
+bindcode $mod+Shift+Mod2+89 move container to workspace $ws3
+bindcode $mod+Shift+Mod2+83 move container to workspace $ws4
+bindcode $mod+Shift+Mod2+84 move container to workspace $ws5
+bindcode $mod+Shift+Mod2+85 move container to workspace $ws6
+bindcode $mod+Shift+Mod2+79 move container to workspace $ws7
+bindcode $mod+Shift+Mod2+80 move container to workspace $ws8
+bindcode $mod+Shift+Mod2+81 move container to workspace $ws9
+bindcode $mod+Shift+Mod2+90 move container to workspace $ws10
 
-# Startup apps
-exec --no-startup-id brave
-exec --no-startup-id discord
+# Move focused container to workspace with numpad keys
+bindcode $mod+Shift+87 move container to workspace $ws1
+bindcode $mod+Shift+88 move container to workspace $ws2
+bindcode $mod+Shift+89 move container to workspace $ws3
+bindcode $mod+Shift+83 move container to workspace $ws4
+bindcode $mod+Shift+84 move container to workspace $ws5
+bindcode $mod+Shift+85 move container to workspace $ws6
+bindcode $mod+Shift+79 move container to workspace $ws7
+bindcode $mod+Shift+80 move container to workspace $ws8
+bindcode $mod+Shift+81 move container to workspace $ws9
+bindcode $mod+Shift+90 move container to workspace $ws10
 
-# Alternating layout
-exec_always --no-startup-id alternating_layouts.py
+############
+# Resizing #
+############
 
-# Compton for window opacity
-exec_always compton -f
+mode "resize" {
+	# Vim-like bindings
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+	# Same bindings, but for the arrow keys
+	bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+	# Exit: Enter or Escape
+	bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
 
-# Move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-floating_modifier $mod
-tiling_drag modifier titlebar
+bindsym $mod+r mode "resize"
+
+#####################################
+# Keybindings for different actions #
+#####################################
 
 # Start a terminal
 bindsym $mod+Return exec alacritty
 
 # Kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
-# App launcher
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$black" -bg "$black" -fg "$white" -hlbg "$black" -hlfg "$blue" -font "SF Pro 18"
+# Exit-menu
+bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
 
-# Lock screen
-bindsym $mod+shift+x exec i3lock-fancy
+# Lock the system
+bindsym $mod+Shift+z exec ~/.config/i3/scripts/blur-lock
+
+# Restart i3 inplace
+bindsym $mod+Shift+r restart
+
+# Keybinding in fancy rofi (automated):
+bindsym F1 exec ~/.config/i3/scripts/keyhint-2
+
+# Backlight control
+bindsym XF86MonBrightnessUp exec xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
+bindsym XF86MonBrightnessDown exec xbacklight -10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 
 # Change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
+# Alternatively, use the cursor keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
 # Move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# Alternatively, use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-# Move focused window
+# Alternatively, use the cursor keys
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -153,49 +179,197 @@ bindsym $mod+f fullscreen toggle
 
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+
 # Change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# Restart i3 inplace
-bindsym $mod+Shift+r restart
+# Open closest empty workspace
+bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 
-# Exit i3
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+###################
+# Multimedia keys #
+###################
 
-# Resize window (you can also use the mouse for that)
-mode "resize" {
-  # These bindings trigger as soon as you enter the resize mode
-  bindsym h resize shrink width 10 px or 10 ppt
-  bindsym j resize grow height 10 px or 10 ppt
-  bindsym k resize shrink height 10 px or 10 ppt
-  bindsym l resize grow width 10 px or 10 ppt
+# Volume
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 
-  # Same bindings, but for the arrow keys
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
+# gGradular volume control
+bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
+bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
 
-  # Back to normal: Enter or Escape or $mod+r
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-  bindsym $mod+r mode "default"
-}
-bindsym $mod+r mode "resize"
+# Mute
+bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
 
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-
-# Media player controls
+# Audio control
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Redirect sound to headphones
+bindsym $mod+p exec /usr/local/bin/switch-audio-port
+
+#########################################
+# Configuration for workspace behaviour #
+#########################################
+
+# Define names for the workspaces
+set $ws1 "1 󰖟 "
+set $ws2 "2  "
+set $ws3 "3  "
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8 󰐢 "
+set $ws9 "9 󰓇 "
+set $ws10 "10 󰙯 "
+
+# Workspaces on different displays
+# Use `xrandr` to get the names of the displays
+#workspace $ws1 output <display-name>
+
+# Bind program to workspace and focus to them on startup:
+assign [class="Brave"] $ws1
+assign [class="alacritty"] $ws2
+assign [class="Thunar"] $ws3
+assign [class="btm"] $ws3
+assign [class="Popcorn-Time"] $ws8
+assign [class="Stremio"] $ws8
+assign [class="Spotify"] $ws9
+assign [class="discord"] $ws10
+
+# Automatic set focus new window if it opens on another workspace than the current:
+#for_window [class=alacritty] focus
+#for_window [class=Brave] focus
+#for_window [class=Stremio] focus
+#for_window [class=Popcorn-Time] focus
+#for_window [class=Thunar] focus
+
+# App shortcuts
+bindsym $mod+b exec /usr/bin/brave
+bindsym $mod+n exec /usr/bin/thunar
+bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png \
+	&& notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+
+##############
+# Compositor #
+##############
+
+# Picom
+exec_always --no-startup-id picom --config  ~/.config/picom.conf
+
+############################################
+# Autostart applications/services on login #
+############################################
+
+# Get auth work with polkit-gnome
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Start a script to setup displays
+# Use arandr to setup displays and save the file as monitor
+exec --no-startup-id ~/.screenlayout/monitor.sh
+
+# Wallpaper
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/.wallpaper.png
+
+# Desktop notifications
+exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
+
+# Autotiling script
+# https://github.com/nwg-piotr/autotiling
+exec_always --no-startup-id autotiling
+
+# Autostart apps as you like
+exec --no-startup-id brave
+exec --no-startup-id alacritty
+exec --no-startup-id thunar
+exec --no-startup-id btm
+exec --no-startup-id spotify
+exec --no-startup-id discord
+
+###############
+# System tray #
+###############
+
+# Bluetooth
+exec --no-startup-id blueberry-tray
+
+# Network
+exec --no-startup-id nm-applet
+
+# Screenshots
+exec --no-startup-id flameshot
+
+#########
+# Theme #
+#########
+
+# Global Colors (Atom One Dark)
+set $black 		#282c34
+set $blue 		#61afef
+set $cyan 		#56b6c2
+set $green 		#98c379
+set $magenta 	#c678dd
+set $red 			#e06c75
+set $white 		#abb2bf
+set $yellow 	#e5c07b
+
+# Window Colors
+# Type                  	Border      Background  Text        Indicator
+client.focused          	$white      $white      $black      $white
+client.unfocused        	$black      $black      $white      $black
+client.focused_inactive 	$black      $black      $white      $black
+client.urgent           	$yellow     $yellow     $black      $yellow
+
+################
+# Bar settings #
+################
+
+bar {
+	font pango:Noto Sans Regular 12
+	strip_workspace_name no
+	position bottom
+
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+
+	#	i3bar_command i3bar --transparency
+	# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
+	# reference: https://i3wm.org/docs/userguide.html#_tray_output
+
+	colors {
+		background $black
+	  separator $white
+
+		# Type              	Border      Background  Text
+		focused_workspace   	$white      $white      $black
+		inactive_workspace  	$black      $black      $white
+		urgent_workspace    	$yellow     $yellow     $black
+	}
+}
+
+####################
+# Application menu #
+####################
+
+# Rofi application menu
+bindsym $mod+d exec rofi \
+	-modi drun \
+	-show drun \
+	-config ~/.config/rofi/rofidmenu.rasi
+
+# Rofi window menu
+bindsym $mod+w exec rofi \
+	-show window \
+	-config ~/.config/rofi/rofidmenu.rasi
+
+# Rofi manage clipboard (rofi-greenclip)
+exec --no-startup-id greenclip daemon>/dev/null
+bindsym $mod+c exec --no-startup-id rofi \
+	-modi "clipboard:greenclip print" \
+	-show clipboard \
+	-config ~/.config/rofi/rofidmenu.rasi
+
+# Power Profiles menu switcher
+bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
