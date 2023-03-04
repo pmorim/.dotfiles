@@ -217,14 +217,14 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 # Define names for the workspaces
 set $ws1 "1 󰖟 "
 set $ws2 "2  "
-set $ws3 "3  "
-set $ws4 "4"
-set $ws5 "5"
+set $ws3 "3 󰙯 "
+set $ws4 "4 󰓇 "
+set $ws5 "5  "
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8 󰐢 "
-set $ws9 "9 󰓇 "
-set $ws10 "10 󰙯 "
+set $ws8 "8"
+set $ws9 "9 󰐢 "
+set $ws10 "10  "
 
 # Workspaces on different displays
 # Use `xrandr` to get the names of the displays
@@ -232,13 +232,13 @@ set $ws10 "10 󰙯 "
 
 # Bind program to workspace and focus to them on startup:
 assign [class="Brave"] $ws1
-assign [class="alacritty"] $ws2
-assign [class="Thunar"] $ws3
-assign [class="btm"] $ws3
-assign [class="Popcorn-Time"] $ws8
-assign [class="Stremio"] $ws8
-assign [class="Spotify"] $ws9
-assign [class="discord"] $ws10
+assign [class="vscodium"] $ws2
+assign [class="discord"] $ws3
+assign [class="Spotify"] $ws4
+assign [class="Thunar"] $ws5
+assign [class="Popcorn-Time"] $ws9
+assign [class="Stremio"] $ws9
+assign [class="btm"] $ws10
 
 # Automatic set focus new window if it opens on another workspace than the current:
 #for_window [class=alacritty] focus
@@ -269,13 +269,13 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Start a script to setup displays
 # Use arandr to setup displays and save the file as monitor
-exec --no-startup-id ~/.screenlayout/monitor.sh
+exec_always --no-startup-id ~/.screenlayout/monitor.sh
 
 # Wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/.wallpaper.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/.wallpaper.png
 
 # Desktop notifications
-exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
+exec_always --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 
 # Autotiling script
 # https://github.com/nwg-piotr/autotiling
