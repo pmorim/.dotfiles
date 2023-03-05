@@ -15,7 +15,7 @@ My personal dotfiles.
   - **Window Manager:** [i3wm](https://i3wm.org/)
   - **Compositor:** [picom](https://github.com/yshui/picom)
   - **App Launcher:** [rofi](https://github.com/davatorium/rofi)
-  - **Bar:** [eww](https://github.com/elkowar/eww)
+  - **Panel:** [eww](https://github.com/elkowar/eww)
   - **Notifications:** [dunst](https://dunst-project.org/)
   - **Screenshots:** [main](https://github.com/naelstrof/maim) & [xclip](https://github.com/astrand/xclip)
 - **Terminal:** [Alacritty](https://alacritty.org/)
