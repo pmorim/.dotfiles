@@ -105,20 +105,20 @@ bindcode $mod+Shift+90 move container to workspace $ws10
 ############
 
 mode "resize" {
-	# Vim-like bindings
+  # Vim-like bindings
   bindsym h resize shrink width 10 px or 10 ppt
   bindsym j resize grow height 10 px or 10 ppt
   bindsym k resize shrink height 10 px or 10 ppt
   bindsym l resize grow width 10 px or 10 ppt
 
-	# Same bindings, but for the arrow keys
-	bindsym Left resize shrink width 10 px or 10 ppt
+  # Same bindings, but for the arrow keys
+  bindsym Left resize shrink width 10 px or 10 ppt
   bindsym Down resize grow height 10 px or 10 ppt
   bindsym Up resize shrink height 10 px or 10 ppt
   bindsym Right resize grow width 10 px or 10 ppt
 
-	# Exit: Enter or Escape
-	bindsym Return mode "default"
+  # Exit: Enter or Escape
+  bindsym Return mode "default"
   bindsym Escape mode "default"
 }
 
@@ -247,7 +247,7 @@ assign [class="Stremio"] $ws10
 bindsym $mod+b exec /usr/bin/brave
 bindsym $mod+n exec /usr/bin/thunar
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png \
-	&& notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+  && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 ##############
 # Compositor #
@@ -302,46 +302,42 @@ exec --no-startup-id nm-applet
 #########
 
 # Global Colors (Atom One Dark)
-set $black 		#282c34
-set $blue 		#61afef
-set $cyan 		#56b6c2
-set $green 		#98c379
-set $magenta 	#c678dd
-set $red 			#e06c75
-set $white 		#abb2bf
-set $yellow 	#e5c07b
+set $black     #282c34
+set $blue     #61afef
+set $cyan     #56b6c2
+set $green     #98c379
+set $magenta   #c678dd
+set $red       #e06c75
+set $white     #abb2bf
+set $yellow   #e5c07b
 
 # Window Colors
-# Type                  	Border      Background  Text        Indicator
-client.focused          	$white      $white      $black      $white
-client.unfocused        	$black      $black      $white      $black
-client.focused_inactive 	$black      $black      $white      $black
-client.urgent           	$yellow     $yellow     $black      $yellow
+# Type                    Border      Background  Text        Indicator
+client.focused            $white      $white      $black      $white
+client.unfocused          $black      $black      $white      $black
+client.focused_inactive   $black      $black      $white      $black
+client.urgent             $yellow     $yellow     $black      $yellow
 
 ################
 # Bar settings #
 ################
 
 bar {
-	font pango:Noto Sans Regular 12
-	strip_workspace_name no
-	position bottom
+  font pango:Noto Sans Regular 12
+  strip_workspace_name no
+  position bottom
 
-	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+  status_command i3blocks -c ~/.config/i3/i3blocks.conf
 
-	#	i3bar_command i3bar --transparency
-	# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
-	# reference: https://i3wm.org/docs/userguide.html#_tray_output
+  colors {
+    background $black
+    separator $white
 
-	colors {
-		background $black
-	  separator $white
-
-		# Type              	Border      Background  Text
-		focused_workspace   	$white      $white      $black
-		inactive_workspace  	$black      $black      $white
-		urgent_workspace    	$yellow     $yellow     $black
-	}
+    # Type                Border      Background  Text
+    focused_workspace     $white      $white      $black
+    inactive_workspace    $black      $black      $white
+    urgent_workspace      $yellow     $yellow     $black
+  }
 }
 
 ####################
@@ -350,21 +346,21 @@ bar {
 
 # Rofi application menu
 bindsym $mod+d exec rofi \
-	-modi drun \
-	-show drun \
-	-config ~/.config/rofi/rofidmenu.rasi
+  -modi drun \
+  -show drun \
+  -config ~/.config/rofi/rofidmenu.rasi
 
 # Rofi window menu
 bindsym $mod+w exec rofi \
-	-show window \
-	-config ~/.config/rofi/rofidmenu.rasi
+  -show window \
+  -config ~/.config/rofi/rofidmenu.rasi
 
 # Rofi manage clipboard (rofi-greenclip)
 exec --no-startup-id greenclip daemon>/dev/null
 bindsym $mod+c exec --no-startup-id rofi \
-	-modi "clipboard:greenclip print" \
-	-show clipboard \
-	-config ~/.config/rofi/rofidmenu.rasi
+  -modi "clipboard:greenclip print" \
+  -show clipboard \
+  -config ~/.config/rofi/rofidmenu.rasi
 
 # Power Profiles menu switcher
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
