@@ -11,6 +11,7 @@ My personal dotfiles.
 ## 🖥️ Setup Overview
 
 - **Operating System:** [EndeavourOS](https://endeavouros.com/)
+- **Color Palette:** Atom One Dark
 - **Desktop:**
   - **Window Manager:** [i3wm](https://i3wm.org/)
   - **Compositor:** [picom](https://github.com/yshui/picom)
