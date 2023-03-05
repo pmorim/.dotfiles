@@ -11,12 +11,12 @@ My personal dotfiles.
 ## 🖥️ Setup Overview
 
 - **Operating System:** [EndeavourOS](https://endeavouros.com/)
-- **Color Palette:** Atom One Dark
+- **Color Palette:** [Atom One Dark](https://github.com/joshdick/onedark.vim)
 - **Desktop:**
-  - **Window Manager:** [i3wm](https://i3wm.org/)
+  - **Window Manager:** [i3wm](https://i3wm.org/) -> updating to [LeftWM](https://github.com/leftwm/leftwm)
   - **Compositor:** [picom](https://github.com/yshui/picom)
   - **App Launcher:** [rofi](https://github.com/davatorium/rofi)
-  - **Panel:** [eww](https://github.com/elkowar/eww)
+  - **Panel:** [i3blocks](https://github.com/vivien/i3blocks) -> updating to [eww](https://github.com/elkowar/eww)
   - **Notifications:** [dunst](https://dunst-project.org/)
   - **Screenshots:** [main](https://github.com/naelstrof/maim) & [xclip](https://github.com/astrand/xclip)
 - **Terminal:** [Alacritty](https://alacritty.org/)
@@ -29,6 +29,7 @@ My personal dotfiles.
     - **cd:** [broot](https://github.com/Canop/broot)
     - **htop:** [bottom](https://github.com/ClementTsang/bottom)
     - **cat:** [bat](https://github.com/sharkdp/bat)
+- **Text Editor**: [VSCodium](https://github.com/VSCodium/vscodium) -> updating to [helix](https://helix-editor.com/)
 
 ## 📦 Setup
 
