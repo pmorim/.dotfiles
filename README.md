@@ -8,6 +8,26 @@
 
 My personal dotfiles.
 
+## 🖥️ Setup Overview
+
+- **Operating System:** [EndeavourOS](https://endeavouros.com/)
+- **Desktop:**
+  - **Window Manager:** [i3wm](https://i3wm.org/)
+  - **Compositor:** [Picom](https://github.com/yshui/picom)
+  - **App Launcher:** [Rofi](https://github.com/davatorium/rofi)
+  - **Bar:** [eww](https://github.com/elkowar/eww)
+  - **Notifications:** [dunst](https://dunst-project.org/)
+  - **Screenshots:** [main](https://github.com/naelstrof/maim) & [xclip](https://github.com/astrand/xclip)
+- **Terminal:** [Alacritty](https://alacritty.org/)
+  - **Shell:** [Zsh](https://github.com/zsh-users/zsh)
+    - **Plugin Manager:** [Zap](https://www.zapzsh.org/)
+  - **Prompt:** [Starship](https://starship.rs/)
+  - **Tool Replacements:**
+    - **ls:** [exa](https://github.com/ogham/exa)
+    - **cd:** [broot](https://github.com/Canop/broot)
+    - **htop:** [bottom](https://github.com/ClementTsang/bottom)
+    - **cat:** [bat](https://github.com/sharkdp/bat)
+
 ## 📦 Setup
 
 Files are structured to create symlinks using [stow](https://www.gnu.org/software/stow/).
