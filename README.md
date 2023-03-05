@@ -11,7 +11,7 @@ My personal dotfiles.
 ## 🖥️ Setup Overview
 
 - **Operating System:** [EndeavourOS](https://endeavouros.com/)
-- **Color Palette:** [Atom One Dark](https://github.com/joshdick/onedark.vim)
+- **Color Palette:** [One Dark](https://github.com/joshdick/onedark.vim)
 - **Desktop:**
   - **Window Manager:** [i3wm](https://i3wm.org/) -> updating to [LeftWM](https://github.com/leftwm/leftwm)
   - **Compositor:** [picom](https://github.com/yshui/picom)
