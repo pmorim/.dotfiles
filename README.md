@@ -25,8 +25,9 @@ cd .dotfiles
 # Use all of the dotfiles...
 stow */
 
-# ...or just one module
-stow <module>
+# ...or choose specific modules
+stow <directory-name> # single
+stow <directory-1> <directory-2> # multiple
 ```
 
 ## ⭐ Credits
