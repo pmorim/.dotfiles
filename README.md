@@ -19,6 +19,7 @@ My personal dotfiles.
   - **Notifications:** [dunst](https://dunst-project.org/)
   - **Screenshots:** [main](https://github.com/naelstrof/maim) & [xclip](https://github.com/astrand/xclip)
 - **Terminal:** [Alacritty](https://alacritty.org/)
+  - **Font:** [Hack Nerd Font](https://www.nerdfonts.com/)
   - **Shell:** [zsh](https://github.com/zsh-users/zsh)
     - **Plugin Manager:** [Zap](https://www.zapzsh.org/)
   - **Prompt:** [Starship](https://starship.rs/)
