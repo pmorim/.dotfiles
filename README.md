@@ -34,5 +34,6 @@ stow <directory-1> <directory-2> # multiple
 
 Inspired by:
 
+- [EndeavourOS](https://endeavouros.com/) - the default configs of the OS.
 - [chris@machine](https://github.com/ChristianChiarulli/Machfiles) - creator of [LunarVim](https://www.lunarvim.org/) and [Zap](https://www.zapzsh.org/).
 - [kabinspace](https://github.com/kabinspace/dotfiles) - creator of [AstroNvim](https://astronvim.github.io/).
