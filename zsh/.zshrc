@@ -17,3 +17,5 @@ plug "zsh-users/zsh-syntax-highlighting"
 
 # Keybinds
 bindkey "^ " autosuggest-accept
+
+source /Users/pedro.morim/.config/broot/launcher/bash/br
