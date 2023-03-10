@@ -24,4 +24,3 @@ alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
 # Code editors
 alias nvimrc="nvim ~/.config/nvim/"
-alias code="vscodium"
