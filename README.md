@@ -10,15 +10,8 @@ My personal dotfiles.
 
 ## 🖥️ Setup Overview
 
-- **Operating System:** [EndeavourOS](https://endeavouros.com/)
+- **Operating System:** [Pop!_OS](https://pop.system76.com/)
 - **Color Palette:** [One Dark](https://github.com/joshdick/onedark.vim)
-- **Desktop:**
-  - **Window Manager:** [i3wm](https://i3wm.org/) -> updating to [LeftWM](https://github.com/leftwm/leftwm)
-  - **Compositor:** [picom](https://github.com/yshui/picom)
-  - **App Launcher:** [rofi](https://github.com/davatorium/rofi)
-  - **Panel:** [i3blocks](https://github.com/vivien/i3blocks) -> updating to [eww](https://github.com/elkowar/eww)
-  - **Notifications:** [dunst](https://dunst-project.org/)
-  - **Screenshots:** [main](https://github.com/naelstrof/maim) & [xclip](https://github.com/astrand/xclip)
 - **Terminal:** [Alacritty](https://alacritty.org/)
   - **Font:** [Hack Nerd Font](https://www.nerdfonts.com/)
   - **Shell:** [zsh](https://github.com/zsh-users/zsh)
