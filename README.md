@@ -22,6 +22,7 @@ My personal dotfiles.
     - **cd:** [broot](https://github.com/Canop/broot)
     - **htop:** [bottom](https://github.com/ClementTsang/bottom)
     - **cat:** [bat](https://github.com/sharkdp/bat)
+    - **nvm:** [volta](https://volta.sh/)
 - **Text Editor**: [VSCodium](https://github.com/VSCodium/vscodium) -> updating to [helix](https://helix-editor.com/)
 
 ## 📦 Setup
