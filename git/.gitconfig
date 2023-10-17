@@ -5,3 +5,11 @@
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = !/usr/bin/gh auth git-credential
+[init]
+	defaultBranch = main
+[alias]
+	br = branch
+	cm = commit
+	co = checkout
+	pf = push -f
+	st = status
