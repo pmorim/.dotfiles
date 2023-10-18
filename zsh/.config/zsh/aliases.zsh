@@ -28,5 +28,5 @@ alias nvimrc="nvim ~/.config/nvim/"
 # AMD Drivers update
 # https://repo.radeon.com/amdgpu-install/latest/ubuntu/jammy/
 alias amd-drivers="sudo sed -i 's/ID=pop/ID=ubuntu/g' /etc/os-release; \
-                  amdgpu-install -y --opencl=rocr --vulkan=amdvlk; \
+                  amdgpu-install -y --no-dkms --opencl=rocr --vulkan=amdvlk; \
                   sudo sed -i 's/ID=ubuntu/ID=pop/g' /etc/os-release"
