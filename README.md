@@ -16,7 +16,7 @@ My [Claude Code](https://claude.com/claude-code) and [Herdr](https://herdr.dev) 
 | In the repo | Applied to | What it is |
 |---|---|---|
 | `dot_claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | Global instructions |
-| `dot_claude/settings.json.tmpl` | `~/.claude/settings.json` | Model, plugins, marketplaces, theme |
+| `dot_claude/create_settings.json.tmpl` | `~/.claude/settings.json` | Model, plugins, marketplaces, theme. Written once, never overwritten |
 | `dot_claude/keybindings.json` | `~/.claude/keybindings.json` | Key bindings |
 | `dot_claude/statusline.ps1` | `~/.claude/statusline.ps1` | Status line (Windows only) |
 | `dot_claude/skills/` | `~/.claude/skills/` | My own skills |
@@ -73,6 +73,7 @@ The answers from `init` live in `~/.config/chezmoi/chezmoi.toml`, outside the re
 
 ## Machine differences
 
+- `settings.json` is only created when missing. Claude Code and other tools (Orca, for example) add hooks to it, and a later `apply` would wipe them. To push a settings change to a machine that has the file, edit it there by hand.
 - The `statusLine` entry in `settings.json` is Windows only, because it runs PowerShell. `statusline.ps1` is skipped elsewhere.
 - Paths come from `{{ .chezmoi.homeDir }}`. Nothing in the repo hardcodes a home folder.
 
