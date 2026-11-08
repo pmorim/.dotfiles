@@ -1,0 +1,5 @@
+{{- $mods := promptStringOnce . "herdr_mods" "Herdr mods to install (comma separated)" "claude-usage,filetree,git-graph,palette-hint,space-agents,tabs-graph" -}}
+{{- $skills := promptStringOnce . "claude_skills" "Claude skills to install (comma separated)" "unslop" -}}
+[data]
+  herdr_mods = {{ splitList "," $mods | toJson }}
+  claude_skills = {{ splitList "," $skills | toJson }}

@@ -1,0 +1,15 @@
+.env
+.env.*
+*.local
+*.local.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+*credentials*
+*.jsonl
+*.bak
+*.log
+node_modules/

@@ -1,0 +1,2 @@
+#!/bin/sh
+exec gitleaks git --staged --redact --config .gitleaks.toml --no-banner

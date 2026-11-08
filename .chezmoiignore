@@ -1,0 +1,21 @@
+README.md
+LICENSE
+.gitleaks.toml
+.githooks
+.github
+
+{{ if ne .chezmoi.os "windows" }}
+.claude/statusline.ps1
+{{ end }}
+
+{{ range glob (printf "%s/dot_config/herdr-app/mods/*" .chezmoi.sourceDir) }}
+{{ if not (has (base .) $.herdr_mods) }}
+.config/herdr-app/mods/{{ base . }}
+{{ end }}
+{{ end }}
+
+{{ range glob (printf "%s/dot_claude/skills/*" .chezmoi.sourceDir) }}
+{{ if not (has (base .) $.claude_skills) }}
+.claude/skills/{{ base . }}
+{{ end }}
+{{ end }}
