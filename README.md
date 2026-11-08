@@ -24,18 +24,20 @@ My [Claude Code](https://claude.com/claude-code) and [Herdr](https://herdr.dev) 
 | `dot_config/herdr-app/layouts/` | `~/.config/herdr-app/layouts/` | My Herdr layout |
 | `dot_config/herdr-app/mods/` | `~/.config/herdr-app/mods/` | My Herdr mods |
 
+Chezmoi spells a leading dot as `dot_`, so `dot_claude` becomes `.claude`. A file starting with `.` in the repo would be ignored by chezmoi.
+
 Only things I wrote are here. Anything an app ships, generates or rewrites stays out. That covers Herdr's shipped mods, Claude Code's credentials, history and sessions, and tool-installed hooks. Plugins reinstall themselves from `enabledPlugins`.
 
 ### Herdr mods
 
 | Mod | Role |
 |---|---|
-| `filetree` | File tree panel with Material Icon Theme icons |
-| `git-graph` | Git history graph |
-| `claude-usage` | Claude usage readout |
-| `space-agents` | Spaces and agents sidebar |
-| `tabs-graph` | Tab bar |
-| `palette-hint` | Command palette hint |
+| `filetree` | IDE-style file tree with git status, search and Material Icon Theme icons |
+| `git-graph` | Commit graph with right-click actions and dialogs |
+| `claude-usage` | Claude plan usage and limits |
+| `space-agents` | One sidebar list of spaces with their agents grouped by status |
+| `tabs-graph` | Tab bar, cloned from Herdr's `tabs` mod |
+| `palette-hint` | Shows the command palette shortcut |
 
 ## Install
 
@@ -75,7 +77,7 @@ The answers from `init` live in `~/.config/chezmoi/chezmoi.toml`, outside the re
 
 - `settings.json` is only created when missing. Claude Code and other tools (Orca, for example) add hooks to it, and a later `apply` would wipe them. To push a settings change to a machine that has the file, edit it there by hand.
 - The `statusLine` entry in `settings.json` is Windows only, because it runs PowerShell. `statusline.ps1` is skipped elsewhere.
-- Paths come from `{{ .chezmoi.homeDir }}`. Nothing in the repo hardcodes a home folder.
+- Templates read the home folder from chezmoi, so no path is hardcoded.
 
 ## Everyday use
 
@@ -100,4 +102,9 @@ A scanner can't tell that a hostname or project name is private. Read `git diff 
 
 ## Credits
 
-The `filetree` mod bundles [Material Icon Theme](https://github.com/material-extensions/vscode-material-icon-theme) icons (MIT). `git-graph` bundles [Lucide](https://lucide.dev) icons. `space-agents` is under Apache-2.0. Each mod keeps its own license file.
+- `filetree` is a port of [claude-code-filetree](https://github.com/data-goblin/claude-code-filetree) by Kurt Buhler (MIT) and bundles [Material Icon Theme](https://github.com/material-extensions/vscode-material-icon-theme) icons (MIT).
+- `git-graph` uses icons drawn after [Lucide](https://lucide.dev).
+- `space-agents` is a changed copy of Herdr's shipped `spaces` and `agents` mods (Apache-2.0, see its `NOTICE.md`).
+- `tabs-graph` is a clone of Herdr's `tabs` mod.
+
+Each mod keeps its own license files.
