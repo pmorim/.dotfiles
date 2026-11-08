@@ -7,7 +7,7 @@ This repo is a chezmoi source directory for Claude Code and Herdr config. It is 
 - Never commit secrets, tokens, `.env*` files, credentials, history or session data.
 - Never hardcode a home path or username. Use `{{ .chezmoi.homeDir }}` in templates.
 - Track files one at a time with `chezmoi add <path>`. Never add `~/.claude` or `~/.config/herdr-app` as a whole.
-- Don't track what the apps generate or ship. That means Herdr's shipped mods and layouts, `gpui-kit.d.ts`, `jsconfig.json`, Claude's runtime folders, and third-party skills.
+- Don't track what the apps generate or ship. That means Herdr's shipped mods and layouts, `gpui-kit.d.ts`, `jsconfig.json`, Claude's runtime folders, tool-installed hooks, third-party skills and agents, and settings files that only hold defaults.
 - Keep Windows-only and macOS-only settings behind `.chezmoi.os` conditions.
 
 ## Layout

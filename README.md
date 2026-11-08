@@ -1,38 +1,65 @@
+<div align="center">
+
 # dotfiles
 
-My Claude Code and Herdr setup, managed with [chezmoi](https://www.chezmoi.io). It runs on Windows and macOS.
+My [Claude Code](https://claude.com/claude-code) and [Herdr](https://herdr.dev) setup, one command per machine.
 
-## What's in it
+[![chezmoi](https://img.shields.io/badge/managed%20with-chezmoi-4f8cc9?style=flat-square)](https://www.chezmoi.io)
+[![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS-555?style=flat-square)](#install)
+[![gitleaks](https://img.shields.io/github/actions/workflow/status/pmorim/.dotfiles/gitleaks.yml?branch=main&label=gitleaks&style=flat-square)](https://github.com/pmorim/.dotfiles/actions/workflows/gitleaks.yml)
+[![Last commit](https://img.shields.io/github/last-commit/pmorim/.dotfiles?style=flat-square)](https://github.com/pmorim/.dotfiles/commits/main)
 
-| Path in repo | Lands in | Holds |
+</div>
+
+## Contents
+
+| In the repo | Applied to | What it is |
 |---|---|---|
-| `dot_claude/` | `~/.claude/` | `CLAUDE.md`, keybindings, settings, agents, my own skills, `skills-lock.json` |
-| `dot_config/herdr-app/` | `~/.config/herdr-app/` | keys, settings, my layouts, my mods |
+| `dot_claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | Global instructions |
+| `dot_claude/settings.json.tmpl` | `~/.claude/settings.json` | Model, plugins, marketplaces, theme |
+| `dot_claude/keybindings.json` | `~/.claude/keybindings.json` | Key bindings |
+| `dot_claude/statusline.ps1` | `~/.claude/statusline.ps1` | Status line (Windows only) |
+| `dot_claude/skills/` | `~/.claude/skills/` | My own skills |
+| `dot_config/herdr-app/keys.json` | `~/.config/herdr-app/keys.json` | Herdr key bindings |
+| `dot_config/herdr-app/layouts/` | `~/.config/herdr-app/layouts/` | My Herdr layout |
+| `dot_config/herdr-app/mods/` | `~/.config/herdr-app/mods/` | My Herdr mods |
 
-Only files I wrote are tracked. Herdr's shipped mods and layouts, its generated files, and everything Claude Code writes at run time (credentials, history, sessions, projects) stay out.
+Only things I wrote are here. Anything an app ships, generates or rewrites stays out. That covers Herdr's shipped mods, Claude Code's credentials, history and sessions, and tool-installed hooks. Plugins reinstall themselves from `enabledPlugins`.
 
-Third-party skills are not copied here. `skills-lock.json` records where they came from, so reinstall them from the source.
+### Herdr mods
+
+| Mod | Role |
+|---|---|
+| `filetree` | File tree panel with Material Icon Theme icons |
+| `git-graph` | Git history graph |
+| `claude-usage` | Claude usage readout |
+| `space-agents` | Spaces and agents sidebar |
+| `tabs-graph` | Tab bar |
+| `palette-hint` | Command palette hint |
 
 ## Install
 
-Install Herdr and Claude Code first and launch each once, so their default files exist. Then:
+Install Herdr and Claude Code first and launch each once, so their default files exist.
 
-```sh
-# macOS
-brew install chezmoi
-# Windows
+**Windows**
+
+```powershell
 winget install twpayne.chezmoi
-
 chezmoi init --apply pmorim/.dotfiles
 ```
 
-`init` asks which Herdr mods and Claude skills to install on this machine. The answers go to `~/.config/chezmoi/chezmoi.toml`, which is not in the repo.
+**macOS**
 
-Run `chezmoi apply --dry-run --verbose` before the first real apply on a machine with existing config.
+```sh
+brew install chezmoi
+chezmoi init --apply pmorim/.dotfiles
+```
 
-## Choosing mods and skills per machine
+`init` asks which Herdr mods and Claude skills to install on that machine. On an existing setup, run `chezmoi apply --dry-run --verbose` first to see what would change.
 
-Edit the two lists in `~/.config/chezmoi/chezmoi.toml`, then run `chezmoi apply`:
+## Pick mods and skills per machine
+
+The answers from `init` live in `~/.config/chezmoi/chezmoi.toml`, outside the repo. Edit the lists and run `chezmoi apply`:
 
 ```toml
 [data]
@@ -40,37 +67,36 @@ Edit the two lists in `~/.config/chezmoi/chezmoi.toml`, then run `chezmoi apply`
   claude_skills = ["unslop"]
 ```
 
-Anything not listed is skipped. Removing a name from a list stops chezmoi managing it but does not delete files it already applied. Delete those by hand.
-
-Layouts reference mods by name. Select every mod a layout uses.
+- A mod or skill that isn't listed is skipped.
+- Removing a name stops chezmoi managing it but doesn't delete files already applied.
+- Layouts refer to mods by name, so select every mod your layout uses.
 
 ## Machine differences
 
-- `settings.json` is a template. Hooks and the status line are Windows-only because they call Orca, `herdr-revive` and PowerShell.
-- Home paths come from `{{ .chezmoi.homeDir }}`. Never hardcode one.
-- `statusline.ps1` is skipped on macOS and Linux.
+- The `statusLine` entry in `settings.json` is Windows only, because it runs PowerShell. `statusline.ps1` is skipped elsewhere.
+- Paths come from `{{ .chezmoi.homeDir }}`. Nothing in the repo hardcodes a home folder.
 
 ## Everyday use
 
 ```sh
-chezmoi re-add             # pull live edits of tracked files into the repo
-chezmoi add <path>         # track a new file, one at a time
-chezmoi diff               # see what apply would change
-chezmoi cd                 # open the repo, then commit and push
+chezmoi re-add      # pull live edits of tracked files into the repo
+chezmoi add <path>  # track one new file
+chezmoi diff        # preview what apply would change
+chezmoi cd          # open the repo to commit and push
 ```
 
-Never add a whole folder such as `~/.claude`. Add the specific files you want.
+Add files one at a time. Never add `~/.claude` or `~/.config/herdr-app` as a whole.
 
 ## Secrets
 
-Nothing secret belongs here. Env files, keys and credentials are blocked by `.gitignore`. A gitleaks pre-commit hook and a GitHub Action scan every change.
+Nothing secret belongs in this repo.
 
-Turn the hook on after cloning:
+- `.gitignore` blocks env files, keys, credentials and `.jsonl` logs.
+- A gitleaks pre-commit hook scans each commit. Enable it after cloning with `git config core.hooksPath .githooks`. It needs `gitleaks` on your PATH (`winget install Gitleaks.Gitleaks` or `brew install gitleaks`) and blocks commits without it.
+- A GitHub Action runs gitleaks on every push and pull request.
 
-```sh
-git config core.hooksPath .githooks
-```
+A scanner can't tell that a hostname or project name is private. Read `git diff --staged` before each push.
 
-It needs `gitleaks` on your PATH (`brew install gitleaks`, `winget install Gitleaks.Gitleaks`). Without it the hook blocks the commit.
+## Credits
 
-Review `git diff --staged` before every push. A scanner can't tell that a hostname or project name is private.
+The `filetree` mod bundles [Material Icon Theme](https://github.com/material-extensions/vscode-material-icon-theme) icons (MIT). `git-graph` bundles [Lucide](https://lucide.dev) icons. `space-agents` is under Apache-2.0. Each mod keeps its own license file.
