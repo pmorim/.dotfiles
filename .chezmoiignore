@@ -1,5 +1,6 @@
 README.md
-LICENSE
+AGENTS.md
+CLAUDE.md
 .gitleaks.toml
 .githooks
 .github
