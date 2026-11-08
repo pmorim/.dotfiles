@@ -4,10 +4,10 @@
 
 My [Claude Code](https://claude.com/claude-code) and [Herdr](https://herdr.dev) setup, one command per machine.
 
-[![chezmoi](https://img.shields.io/badge/managed%20with-chezmoi-4f8cc9?style=flat-square)](https://www.chezmoi.io)
-[![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS-555?style=flat-square)](#install)
-[![gitleaks](https://img.shields.io/github/actions/workflow/status/pmorim/.dotfiles/gitleaks.yml?branch=main&label=gitleaks&style=flat-square)](https://github.com/pmorim/.dotfiles/actions/workflows/gitleaks.yml)
-[![Last commit](https://img.shields.io/github/last-commit/pmorim/.dotfiles?style=flat-square)](https://github.com/pmorim/.dotfiles/commits/main)
+[![Managed with chezmoi](.github/badges/chezmoi.svg)](https://www.chezmoi.io)
+[![Windows and macOS](.github/badges/platforms.svg)](#install)
+[![For Claude Code and Herdr](.github/badges/apps.svg)](#contents)
+[![Scanned with gitleaks](.github/badges/gitleaks.svg)](#secrets)
 
 </div>
 
