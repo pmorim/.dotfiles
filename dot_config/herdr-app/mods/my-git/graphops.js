@@ -15,8 +15,8 @@ export async function perform(root, on, action, sha, input) {
     hard: [["reset", "--hard", sha]],
     reword: [["commit", "--amend", "--only", "-m", input]],
     undo: [["reset", "--hard", "HEAD@{1}"]],
-    checkout: [["switch", input]],
-    delete: [["branch", "-d", input]],
+    checkout: [["switch", "--", input]],
+    delete: [["branch", "-d", "--", input]],
   }[action];
   for (const args of steps) {
     const r = await run(root, on, args);

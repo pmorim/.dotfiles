@@ -9,6 +9,7 @@ const SCRIPT = [
   'd=$(mktemp -d) || exit 1; trap \'rm -rf "$d"\' EXIT',
   'if [ "$mode" = old ]; then git -C "$root" show "$base:$file" > "$d/$name" 2>/dev/null || exit 1; target="$d/$name"; else target="$root/$file"; fi',
   '[ "$(wc -c < "$target")" -gt 600000 ] && exit 1',
+  'cd "$d" || exit 1',
   'tree-sitter highlight --html --style minimal --layout fragment "$target" 2>/dev/null',
 ].join("\n");
 
