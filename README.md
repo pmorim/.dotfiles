@@ -18,7 +18,7 @@ My [Claude Code](https://claude.com/claude-code) and [Herdr](https://herdr.dev) 
 | `dot_claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | Global instructions |
 | `dot_claude/create_settings.json.tmpl` | `~/.claude/settings.json` | Model, plugins, marketplaces, theme. Written once, never overwritten |
 | `dot_claude/keybindings.json` | `~/.claude/keybindings.json` | Key bindings |
-| `dot_claude/statusline.ps1` | `~/.claude/statusline.ps1` | Status line (Windows only) |
+| `dot_claude/statusline.js` | `~/.claude/statusline.js` | Status line (needs `node`) |
 | `dot_claude/skills/` | `~/.claude/skills/` | My own skills |
 | `dot_config/herdr-app/keys.json` | `~/.config/herdr-app/keys.json` | Herdr key bindings |
 | `dot_config/herdr-app/layouts/` | `~/.config/herdr-app/layouts/` | My Herdr layout |
@@ -76,7 +76,6 @@ The answers from `init` live in `~/.config/chezmoi/chezmoi.toml`, outside the re
 ## Machine differences
 
 - `settings.json` is only created when missing. Claude Code and other tools (Orca, for example) add hooks to it, and a later `apply` would wipe them. To push a settings change to a machine that has the file, edit it there by hand.
-- The `statusLine` entry in `settings.json` is Windows only, because it runs PowerShell. `statusline.ps1` is skipped elsewhere.
 - Templates read the home folder from chezmoi, so no path is hardcoded.
 
 ## Everyday use

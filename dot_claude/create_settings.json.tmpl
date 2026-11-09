@@ -1,10 +1,8 @@
 {
-{{- if eq .chezmoi.os "windows" }}
   "statusLine": {
     "type": "command",
-    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File {{ .chezmoi.homeDir | replace `\` "/" }}/.claude/statusline.ps1"
+    "command": "node {{ .chezmoi.homeDir | replace `\` "/" }}/.claude/statusline.js"
   },
-{{- end }}
   "model": "sonnet",
   "enabledPlugins": {
     "mattpocock-skills@claude-plugins-official": true,
