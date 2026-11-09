@@ -4,6 +4,31 @@
     "command": "node {{ .chezmoi.homeDir | replace `\` "/" }}/.claude/statusline.js"
   },
   "model": "sonnet",
+  "env": {
+    "DUMB_ZONE_TOKENS": "150000"
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 {{ .chezmoi.homeDir | replace `\` "/" }}/.claude/hooks/context-budget.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 {{ .chezmoi.homeDir | replace `\` "/" }}/.claude/hooks/context-budget.py"
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "mattpocock-skills@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
