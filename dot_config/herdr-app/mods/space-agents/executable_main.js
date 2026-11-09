@@ -567,16 +567,6 @@ export default class SpaceAgents extends View {
     return { label, line, height: (checkout ? 28 : 30) + (line ? 12 : 0) };
   }
 
-  prBadge(g, t) {
-    const p = this.prs[g.repo];
-    if (!(p?.open > 0)) return null;
-    return this.badge(`pr-${g.top}`, t, {
-      text: `PR ${p.open}`, color: p.review > 0 ? t.ansi1 : t.dim,
-      tip: p.review > 0 ? `${p.open} open pull requests, ${p.review} ask for your review` : `${p.open} open pull request${p.open > 1 ? "s" : ""}`,
-      press: () => exec("gh", ["pr", "list", "--web"], { cwd: g.top, on: JSON.parse(g.repo)[0] }).catch(() => {}),
-    });
-  }
-
   gitLine(g, checkout, name, t, withPr = true, clash = [], id = "") {
     const where = this.gitText(g, checkout, name);
     return h_flex()
@@ -604,7 +594,6 @@ export default class SpaceAgents extends View {
         text: `↓${g.behind}`, color: t.ansi1, tip: `${g.behind} commit${g.behind > 1 ? "s" : ""} to pull (fast-forward only)`,
         press: (cx) => this.gitAction(`pull-${g.top}`, g, ["pull", "--ff-only"], "Pull", cx),
       })))
-      .when(withPr && Boolean(this.prBadge(g, t)), (el) => el.child(this.prBadge(g, t)))
       .when(clash.length > 0, (el) => el.child(h_flex().id(`clash-${id}`).flex_none().gap(3).items_center().text_color(t.ansi3)
         .tooltip(`Also changed in another worktree: ${clash.slice(0, 6).join(", ")}${clash.length > 6 ? ` and ${clash.length - 6} more` : ""}`)
         .child(svg("mods/workspace-chrome/git-compare.svg").size(11).flex_none()).child(String(clash.length))));
@@ -677,7 +666,6 @@ export default class SpaceAgents extends View {
     const sums = group.map((r) => foldSummary(tree.get(r.w.id) ?? []));
     const count = sums.reduce((n, s) => n + s.count, 0);
     const top = sums.reduce((m, s) => ((RANK[s.top] ?? 0) > (RANK[m] ?? 0) ? s.top : m), null);
-    const pr = main.g ? this.prBadge(main.g, t) : null;
     return h_flex()
       .id(`project-${main.w.id}`)
       .h(30)
@@ -697,7 +685,6 @@ export default class SpaceAgents extends View {
       .child(this.statusDot(top, t))
       .child(div().min_w(0).truncate().font_semibold().text_color(t.foreground).child(main.w.name))
       .child(div().flex_1())
-      .when(Boolean(pr), (el) => el.child(pr))
       .child(this.foldToggle(key, { count, top }, t));
   }
 
