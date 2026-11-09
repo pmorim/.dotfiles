@@ -129,10 +129,10 @@
                           }
                         },
                         {
-                          "id": "graph",
+                          "id": "git",
                           "type": "block",
                           "content": {
-                            "mod": "git-graph"
+                            "mod": "my-git"
                           }
                         }
                       ],

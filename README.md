@@ -33,7 +33,7 @@ Only things I wrote are here. Anything an app ships, generates or rewrites stays
 | Mod | Role |
 |---|---|
 | `filetree` | IDE-style file tree with git status, search and Material Icon Theme icons |
-| `git-graph` | Commit graph with right-click actions and dialogs |
+| `my-git` | Git panel: changes, commit graph with actions, stash and review |
 | `claude-usage` | Claude plan usage and limits |
 | `space-agents` | One sidebar list of spaces with their agents grouped by status |
 | `tabs-graph` | Tab bar, cloned from Herdr's `tabs` mod |
@@ -65,7 +65,7 @@ The answers from `init` live in `~/.config/chezmoi/chezmoi.toml`, outside the re
 
 ```toml
 [data]
-  herdr_mods = ["filetree", "git-graph"]
+  herdr_mods = ["filetree", "my-git"]
   claude_skills = ["unslop"]
 ```
 
@@ -102,8 +102,8 @@ A scanner can't tell that a hostname or project name is private. Read `git diff 
 ## Credits
 
 - `filetree` is a port of [claude-code-filetree](https://github.com/data-goblin/claude-code-filetree) by Kurt Buhler (MIT) and bundles [Material Icon Theme](https://github.com/material-extensions/vscode-material-icon-theme) icons (MIT).
-- `git-graph` uses icons drawn after [Lucide](https://lucide.dev).
 - `space-agents` is a changed copy of Herdr's shipped `spaces` and `agents` mods (Apache-2.0, see its `NOTICE.md`).
+- `my-git` is a clone of Herdr's shipped `git` mod, with a reworked graph tab.
 - `tabs-graph` is a clone of Herdr's `tabs` mod.
 
 Each mod keeps its own license files.
