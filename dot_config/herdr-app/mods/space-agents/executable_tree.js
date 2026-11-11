@@ -261,17 +261,19 @@ export function sharedEdits(places) {
 // The transcript names the model but not its window. 1M for a model from generation 5 on (claude-haiku-5-5 read
 // 9.2% at 73.9k, so 1M), for one marked [1m], or one seen past 200k (`big`); 200k otherwise.
 export const CONTEXT_WARN = 60;
-export const CONTEXT_LAP = 250000;
+export const CONTEXT_LAP = 150000;
 export function contextWindow(tokens, model, big = new Set()) {
   const generation = Number(/^claude-[a-z]+-(\d+)/.exec(model ?? "")?.[1] ?? 0);
   return tokens > 200000 || big.has(model) || /\[1m\]/i.test(model ?? "") || generation >= 5 ? 1000000 : 200000;
 }
-// One lap of the ring is 250k tokens. Past that the ring keeps filling: `laps` counts the full laps, `pct` is
+// One lap of the ring is 150k tokens. Past that the ring keeps filling: `laps` counts the full laps, `pct` is
 // the progress into the current one, and the total stops at the model's window.
-export function contextShare(tokens, model, big = new Set()) {
+// `limit` is the dumb zone from settings.json when the helper found one; anything else gets CONTEXT_LAP.
+export function contextShare(tokens, model, big = new Set(), limit = null) {
   if (!Number.isFinite(tokens) || tokens <= 0) return null;
+  const lap = Number.isFinite(limit) && limit > 0 ? limit : CONTEXT_LAP;
   const window = contextWindow(tokens, model, big);
-  const turns = Math.min(tokens, window) / CONTEXT_LAP;
+  const turns = Math.min(tokens, window) / lap;
   const laps = Math.floor(turns);
-  return { laps, pct: Math.round((turns - laps) * 100), window, first: Math.round(Math.min(turns, 1) * 100) };
+  return { laps, pct: Math.round((turns - laps) * 100), window, lap, first: Math.round(Math.min(turns, 1) * 100) };
 }

@@ -8,7 +8,7 @@ import { View, div, image, svg } from "gpui-kit";
 import { v_flex, h_flex } from "gpui-base";
 import { agents, terminals, panes, focused, spaces, machines, run, openOverlay, exec, hc, theme, shared, setShared, setAgentOrder, settings, playSound, watchFolder, notify, window, layout, appHome, home, nextCommand } from "herdr";
 import {
-  CONTEXT_LAP, CONTEXT_WARN, NO_SPACE, RANK, agentNames, agentTree, blockedReason, changedPaths, contextShare, displayOrder, dropTarget, finishedWorkers, fleetCounts,
+  CONTEXT_WARN, NO_SPACE, RANK, agentNames, agentTree, blockedReason, changedPaths, contextShare, displayOrder, dropTarget, finishedWorkers, fleetCounts,
   foldKey, foldPressed, foldSummary, inbox, kidStatus, nextHeld, pruneFolds, sharedEdits, spaceActive, subtree, terminalName, unseenCount, urgencyOf,
 } from "./tree.js";
 
@@ -906,7 +906,7 @@ export default class SpaceAgents extends View {
   // A ring for how full the session's context is: yellow from 60%, red from 80%, the point to wrap up and start fresh.
   contextTag(a, t) {
     const c = this.context[a.address];
-    const share = c ? contextShare(c.tokens, c.model, this.bigModels) : null;
+    const share = c ? contextShare(c.tokens, c.model, this.bigModels, c.limit) : null;
     if (!share) return div().flex_none();
     const step = Math.min(100, Math.round(share.pct / 5) * 5);
     const color = share.first >= 80 ? t.ansi1 : share.first >= CONTEXT_WARN ? t.ansi3 : t.muted;
@@ -915,7 +915,7 @@ export default class SpaceAgents extends View {
     const laps = Array.from({ length: share.laps }, () => layer("100", 0.4));
     const partial = share.laps === 0 ? Math.max(5, step) : step;
     return div().id(`ctx-${a.address}`).flex_none().relative().size(14)
-      .tooltip(`${Math.round(c.tokens / 1000)}k tokens, ring fills at ${CONTEXT_LAP / 1000}k${share.laps ? `, lap ${share.laps + 1}` : ""}`)
+      .tooltip(`${Math.round(c.tokens / 1000)}k tokens, ring fills at ${Math.round(share.lap / 1000)}k${share.laps ? `, lap ${share.laps + 1}` : ""}`)
       .child(svg("mods/space-agents/ring/track.svg").absolute().top(0).left(0).size(14).text_color(t.border))
       .children(laps)
       .when(partial > 0, (el) => el.child(layer(String(partial), 1)));

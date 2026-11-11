@@ -252,11 +252,23 @@ def alive(pid):
         return False
 
 
+def dumb_zone(config):
+    """env.DUMB_ZONE_TOKENS from the config's settings.json; None when absent or not a positive whole number."""
+    try:
+        with open(os.path.join(config, "settings.json"), encoding="utf-8") as f:
+            value = json.load(f)["env"]["DUMB_ZONE_TOKENS"]
+        limit = int(value)
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+    return limit if limit > 0 else None
+
+
 def usage_of(config, session):
     path = transcript(config, session)
     usage = latest_usage(path) if path else None
     if not usage:
         return {"tokens": 0, "model": None, "subs": [], "tasks": []}
+    usage["limit"] = dumb_zone(config)
     lines = read_lines(path)
     now = time.time()
     usage["subs"] = subagents(path, done_signals(lines), now)
