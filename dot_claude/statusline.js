@@ -31,7 +31,8 @@ const formatTokens = n => {
 };
 
 const width = 20;
-const dumbZoneTokens = Number(process.env.DUMB_ZONE_TOKENS);
+const configured = Number(process.env.DUMB_ZONE_TOKENS);
+const dumbZoneTokens = configured > 0 ? configured : 150000;
 const filled = Math.min(width, Math.floor((tokens * width) / dumbZoneTokens));
 const bar = "█".repeat(filled) + dim + "░".repeat(width - filled) + reset;
 
